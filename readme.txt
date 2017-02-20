@@ -1,5 +1,4 @@
-
-memo 20170220
+memo 2017/02/20
 #check logical ethnet devices name
 ls /sys/class/net/  
 → enp0s3 enp0s8 lo lxcbr0
@@ -29,11 +28,11 @@ ifconfig enp0s8
 inet addr:192.168.56.101   
 Bcast:192.168.56.255   
 Mask:255.255.255.0
-#Try to ping 192.168.56.101 via ubuntu
+#Try to ping 192.168.56.1 via ubuntu
 
 #Windos VirtualBox Host-Only Network adapter setup
 property > network > TCP/IPv4 > Property 
-> IP: 192.168.56.10
+> IP: 192.168.56.1
 Mask:255.255.255.0
 Default Gateway: 192.168.56.255
 DNS:empty
