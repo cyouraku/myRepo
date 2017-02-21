@@ -3,7 +3,7 @@ memo 2017/02/20
 ls /sys/class/net/  
 → enp0s3 enp0s8 lo lxcbr0
 
-#set /etc/nework/interfaces
+#set /etc/network/interfaces
 #enp0s3:nat(网络地址转换)
 #enp0s8:host-only
 # The second network interface
