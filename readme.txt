@@ -1,3 +1,25 @@
+memo 2017/02/21
+#virtualbox共享文件夹
+0.Install VBoxGuestAdditions,设置virtualbox的共享文件夹C:\share
+1.取消virtualbox的共享文件夹自动挂载选项
+2.按如下步骤操作:
+sudo nano /etc/fstab
+在最后加上：
+share /mnt/win7shared vboxsf rw,gid=username,uid=username,auto 0 0
+或者：share /mnt/win7shared vboxsf default 0 0
+其中username是自己的用户名。
+sudo mkdir /mnt/win7shared
+sudo mount -t vboxsf  /mnt/win7shared
+
+#ubuntu修改主机名,服务器名,用户名和密码
+1.修改主机名sudo nano /etc/hostname
+2.修改服务器名sudo nano /etc/hosts
+3.修改用户名和密码
+3.1.修改用户名
+sudo nano /etc/passwd
+sudo nano /etc/shadow
+3.2修改用户名密码
+
 memo 2017/02/20
 #check logical ethnet devices name
 ls /sys/class/net/  
