@@ -4,10 +4,12 @@ memo 2017/02/21
 1.取消virtualbox的共享文件夹自动挂载选项
 2.按如下步骤操作:
 sudo nano /etc/fstab
-在最后加上：
+#在最后加上：
 share /mnt/win7shared vboxsf rw,gid=username,uid=username,auto 0 0
-或者：share /mnt/win7shared vboxsf default 0 0
-其中username是自己的用户名。
+#或者：share /mnt/win7shared vboxsf default 0 0
+#其中username是自己的用户名。
+#In case of entering emergency mode when reboot, pls remove the above settings added into /etc/fstab.
+#Then use the commands below:
 sudo mkdir /mnt/win7shared
 sudo mount -t vboxsf  /mnt/win7shared
 
