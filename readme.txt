@@ -1,5 +1,18 @@
 memo 2017/02/21
 #virtualbox共享文件夹
+#Before install VBoxGuestAdditions, for ubuntu-server, you should install GCC and Make util at first
+# sudo apt-get gcc
+# sudo apt-get install Make
+# Then try to mount sr0 as below
+# ls -l /dev | grep sr0
+# mount /dev/sr0 /mnt
+# cd /mnt
+# ./*.run
+# After the above operation, you should chech whether vboxsf has installed or not as below
+# lsmod | grep vboxsf
+# It shows the correct installation if the result displayed like below:
+#vboxsf                 37328  1 
+#vboxguest             195176  2 vboxsf
 0.Install VBoxGuestAdditions,设置virtualbox的共享文件夹C:\share
 1.取消virtualbox的共享文件夹自动挂载选项
 2.按如下步骤操作:
