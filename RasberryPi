@@ -8,3 +8,8 @@ https://personal.xively.com
 1.花生壳
 2.ngrok(GitHub - inconshreveable/ngrok: Introspected tunnels to localhost)
 3.frp(GitHub - fatedier/frp: A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.)
+你需要有vps
+vps装ngrok服务端
+pi装ngrok客户端
+你可能还需要一个域名，别人访问域名时访问的是你的vps
+然后通过ngrok访问你的pi
