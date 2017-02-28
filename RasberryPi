@@ -3,3 +3,8 @@ https://www.zhihu.com/question/20859055
 
 Try a Linux project with the Pi, and hook it up to Xively
 https://personal.xively.com
+
+外网可以访问本地Nginx搭的网站
+1.花生壳
+2.ngrok(GitHub - inconshreveable/ngrok: Introspected tunnels to localhost)
+3.frp(GitHub - fatedier/frp: A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.)
