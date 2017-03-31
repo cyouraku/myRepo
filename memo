@@ -1,12 +1,15 @@
 2017/03/31
+Step1:
 split命令分割文件:
 按4G大小分割fileName.tar文件并按fileName.tar.00~99文件名格式输出到dirName文件夹下:
 split -b 4096m -d fileName.tar ./dirName/fileName.tar.
-
+Step2:
 cat命令合并文件:
 将上述命令执行后的文件合并为fileName.tar文件
-cat fileName.tar.* &gt;fileName.tar或者cat fileName.tar.* > fileName.tar
-
+cat fileName.tar.* > fileName.tar
+Step3:
+用md5sum检查合并后文件与分割前文件是否一致:
+md5sum fileName.tar
 
 2017/03/28
 用 Docker 快速配置前端开发环境
