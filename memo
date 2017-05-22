@@ -1,3 +1,12 @@
+2017/05/22
+#Install cloudinsight-agent
+$ sudo apt-get autoremove
+$ sudo apt-get autoclean
+$ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_4.7.3-1_amd64.deb 
+
+#cloudinsight quick start
+http://docs-ci.oneapm.com/quick-start/
+
 2017/04/27
 用于Java和XML绑定的JAXB教程
 https://www.javacodegeeks.com/2015/04/%E7%94%A8%E4%BA%8Ejava%E5%92%8Cxml%E7%BB%91%E5%AE%9A%E7%9A%84jaxb%E6%95%99%E7%A8%8B.html
