@@ -3,6 +3,15 @@
 $ sudo apt-get autoremove
 $ sudo apt-get autoclean
 $ wget http://apt.oneapm.com/pool/main/cloudinsight-agent_4.7.3-1_amd64.deb 
+$ dpkg -i cloudinsight-agent_x.x.0-1_amd64.deb
+#配置 License Key
+$ cd /etc/cloudinsight-agent/
+$ cp cloudinsight-agent.conf.example   cloudinsight-agent.conf  
+$ vi cloudinsight-agent.conf  （修改成自己的 license_key）
+#重启 Cloudinsight Agent
+$ /etc/init.d/cloudinsight-agent restart
+#了解 Agent 的目录结构
+$ /etc/cloudinsight-agent : tree .
 
 #cloudinsight quick start
 http://docs-ci.oneapm.com/quick-start/
