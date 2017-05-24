@@ -1,3 +1,9 @@
+2017/05/23
+#超线程技术对于Linux性能的影响
+https://www.ibm.com/developerworks/cn/linux/l-htl/
+查看cpu
+cat /proc/cpuinfo 
+
 2017/05/22
 http://cloud.oneapm.com/#/hosts/list
 #cloudinsight quick start
