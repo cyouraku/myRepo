@@ -1,0 +1,2 @@
+#Deploy node.js Express Server project "my-nodejs-app-test"
+gcloud app deploy --version 1 --promote --project my-nodejs-app-test
