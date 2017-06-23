@@ -1,6 +1,10 @@
 2017/06/23
 #Google Cloud SQL の使用 
 https://cloud.google.com/appengine/docs/java/cloud-sql/
+#用 Groovy 打造服务器端
+https://www.ibm.com/developerworks/cn/java/j-pg03155/index.html
+#使用 Bigtable、Blobstore 和 Google Storage 实现 GAE 存储
+https://www.ibm.com/developerworks/cn/java/j-gaestorage/index.html
 
 2017/06/22
 #教你如何使用 Google App Engine             
