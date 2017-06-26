@@ -1,4 +1,8 @@
 2017/06/26
+#Java中只保留数字的处理方法
+inputStr = inputStr.replaceAll("[^0-9]","");
+#只保留数字、字母、中文、标点符号
+正则表达式的扩展："[^0-9a-zA-Z\u4e00-\u9fa5.，,。？“”]+"
 #Python3中字符串中的数字提取方法
 import re
 re.sub('\D','',inputStr) //Function: replace no digital str in inputStr with ''
