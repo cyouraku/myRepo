@@ -1,3 +1,9 @@
+2017/06/26
+#Python3中字符串中的数字提取方法
+import re
+re.sub('\D','',inputStr) //Function: replace no digital str in inputStr with ''
+http://www.jianshu.com/p/e4e3e88f551d
+
 2017/06/23
 #Node.js Express Framework
 http://www.runoob.com/nodejs/nodejs-express-framework.html
