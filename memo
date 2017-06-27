@@ -1,3 +1,7 @@
+2017/06/27
+#Tutorial to build GAE by Python2.7
+https://gae-init.appspot.com/
+
 2017/06/26
 #Java中只保留数字的处理方法
 inputStr = inputStr.replaceAll("[^0-9]","");
