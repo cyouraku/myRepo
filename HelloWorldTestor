@@ -137,3 +137,62 @@ public class HelloWorldTestor extends TestCase {
 	}
 
 }
+
+
+public class HelloWorld {
+
+	private String name;
+	private int id;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public HelloWorld(String name,int id){
+		this.name = name;
+		this.id = id;
+	}
+
+    /**
+     * print random method
+     */
+    public void printRandom(){
+        int rand = (int) (Math.random()*100);
+        System.out.println("rand=" + rand);
+        if(rand%2==0){
+            System.out.println( "Hello, world! 0");
+        }
+        else
+            System.out.println("Hello, world! 1");
+
+        int result = rand%2==0? rand+rand:rand*rand;
+        System.out.println("result=" + result);
+    }
+
+
+    public String printString(){
+    	StringBuilder sb = new StringBuilder();
+        int rand = (int) (Math.random()*100);
+        if(rand%2==0){
+            sb.append("Hello, world! 0" + "\n");
+        }
+        else
+        	sb.append("Hello, world! 1" + "\n");
+        int result = rand%2==0? rand+rand:rand*rand;
+        sb.append("result" + result);
+        return sb.toString();
+    }
+
+}
