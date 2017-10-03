@@ -1,0 +1,139 @@
+package test.junit.mockito.testor;
+
+import static org.mockito.Mockito.*;
+
+import java.lang.reflect.Field;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InOrder;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import com.string.testor.HelloWorld;
+
+import junit.framework.TestCase;
+
+public class HelloWorldTestor extends TestCase {
+
+    @Mock
+	private HelloWorld hello;
+
+    @Before
+    public void initMocks() {
+    //④ 初始化当前测试类所有@Mock注解模拟对象
+        MockitoAnnotations.initMocks(this);
+    }
+
+
+    /**
+     * Test list add method
+     */
+	@SuppressWarnings("unchecked")
+	@Test
+	public void test_execute_001(){
+	  List<String> strList = mock(List.class);
+      strList.add("fist add");
+      strList.add("second add");
+      strList.add("third add");
+      //create an inOrder verifier for a single mock
+      InOrder inOrder = inOrder(strList);
+      //following will make sure that add is first called with "was added first, then with "was added second"
+      inOrder.verify(strList).add("fist add");
+      inOrder.verify(strList).add("second add");
+      inOrder.verify(strList).add("third add");
+
+    //verify that method was never called on a mock
+      verify(strList, never()).add("two");
+      //Stubbing void 方法处理异常
+      doThrow(new RuntimeException()).when(strList).clear();
+    //following throws RuntimeException:
+//      strList.clear();
+	}
+
+	@Test
+	public void test_execute_002(){
+		initMocks();
+		HelloWorld hello2 = mock(HelloWorld.class);
+		when(hello2.getName()).thenReturn("Name");
+		when(hello2.getId()).thenReturn(2);
+		assertEquals(hello2.getName(),"Name");
+		assertEquals(hello2.getId(),2);
+
+		hello = mock(HelloWorld.class);
+		when(hello.getName()).thenReturn("ZYH");
+		when(hello.getId()).thenReturn(1);
+		assertEquals(hello.getName(),"ZYH");
+		assertEquals(hello.getId(),1);
+
+		//Stubbing void 方法处理异常
+		doThrow(new RuntimeException()).when(hello).printRandom();
+		//following throws RuntimeException:
+//		hello.printRandom();
+
+//		when(hello.printString()).thenCallRealMethod();
+//		System.out.println(when(hello.printString()).thenCallRealMethod().getMock().toString());
+		assertNotNull(when(hello.printString()).thenCallRealMethod());
+	}
+
+	@Test
+	public void test_execute_003(){
+		HelloWorld hello = new HelloWorld("Zhangle",3);
+		assertEquals(hello.getId(),3);
+		assertEquals(hello.getName(),"Zhangle");
+		String temp = "";
+		for(int i=0;i<10;i++){
+			temp = hello.printString();
+		}
+		assertNotNull(temp);
+		for(int i=0;i<10;i++){
+			hello.printRandom();
+		}
+		hello.setId(0);
+		hello.setName("admin");
+		assertEquals(hello.getId(),0);
+		assertEquals(hello.getName(),"admin");
+
+		assertEquals(false,testField());
+
+
+	}
+
+	private boolean testField() {
+		boolean isFlag = false;
+		try {
+			@SuppressWarnings("unchecked")
+			Class<HelloWorld> clazz = (Class<HelloWorld>) Class.forName(HelloWorld.class.getName());
+			Object obj = clazz.newInstance();
+//			Field[] fields = obj.getClass().getDeclaredFields();
+//			for(Field f:fields){
+//				f.getName();
+//				System.out.println(f.getName());
+//			}
+			//error:
+			Field name = obj.getClass().getDeclaredField("name");
+			Field  id = obj.getClass().getDeclaredField("id");
+			name.setAccessible(true);
+			id.setAccessible(true);
+			name.set(String.class, "");
+			id.set(Integer.class, 4);
+			int tempId = ((HelloWorld) obj).getId();
+			String tempStr = ((HelloWorld) obj).getName();
+			if(tempId == 4 && "test".equals(tempStr)){
+				isFlag = true;
+			}
+//			obj = new HelloWorld("test", 4);
+//			int tempId = ((HelloWorld) obj).getId();
+//			String tempStr = ((HelloWorld) obj).getName();
+//			if(tempId == 4 && "test".equals(tempStr)){
+//				isFlag = true;
+//			}
+		} catch (ClassNotFoundException | NoSuchFieldException | SecurityException | InstantiationException
+				| IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return isFlag;
+	}
+
+}
